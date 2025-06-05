@@ -1,0 +1,244 @@
+{
+    "playlists": [
+        {
+            "playlistID": "1",
+            "playlist_name": "Afrobeats Essentials",
+            "playlist_author": "Burna Boy",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Last Last",
+                    "artistname": "Burna Boy",
+                    "albumname": "Love, Damini"
+                },
+                {
+                    "songtitle": "Essence",
+                    "artistname": "Wizkid ft. Tems",
+                    "albumname": "Made In Lagos"
+                },
+                {
+                    "songtitle": "Calm Down",
+                    "artistname": "Rema",
+                    "albumname": "Rave & Roses"
+                }
+            ]
+        },
+        {
+            "playlistID": "2",
+            "playlist_name": "Wizkid's Greatest Hits",
+            "playlist_author": "Wizkid",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Ojuelegba",
+                    "artistname": "Wizkid",
+                    "albumname": "Ayo"
+                },
+                {
+                    "songtitle": "Joro",
+                    "artistname": "Wizkid",
+                    "albumname": "Made In Lagos"
+                },
+                {
+                    "songtitle": "Come Closer",
+                    "artistname": "Wizkid ft. Drake",
+                    "albumname": "Sounds From The Other Side"
+                }
+            ]
+        },
+        {
+            "playlistID": "3",
+            "playlist_name": "Davido's Party Mix",
+            "playlist_author": "Davido",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Fall",
+                    "artistname": "Davido",
+                    "albumname": "A Good Time"
+                },
+                {
+                    "songtitle": "If",
+                    "artistname": "Davido",
+                    "albumname": "A Good Time"
+                },
+                {
+                    "songtitle": "Unavailable",
+                    "artistname": "Davido ft. Musa Keys",
+                    "albumname": "Timeless"
+                }
+            ]
+        },
+        {
+            "playlistID": "4",
+            "playlist_name": "Tems' Soulful Collection",
+            "playlist_author": "Tems",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Free Mind",
+                    "artistname": "Tems",
+                    "albumname": "For Broken Ears"
+                },
+                {
+                    "songtitle": "Higher",
+                    "artistname": "Tems",
+                    "albumname": "For Broken Ears"
+                },
+                {
+                    "songtitle": "Try Me",
+                    "artistname": "Tems",
+                    "albumname": "For Broken Ears"
+                }
+            ]
+        },
+        {
+            "playlistID": "5",
+            "playlist_name": "Rema's Modern Afrobeats",
+            "playlist_author": "Rema",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Dumebi",
+                    "artistname": "Rema",
+                    "albumname": "Rema"
+                },
+                {
+                    "songtitle": "Soundgasm",
+                    "artistname": "Rema",
+                    "albumname": "Rave & Roses"
+                },
+                {
+                    "songtitle": "Charm",
+                    "artistname": "Rema",
+                    "albumname": "Rave & Roses"
+                }
+            ]
+        },
+        {
+            "playlistID": "6",
+            "playlist_name": "Ayra Starr's Rising Stars",
+            "playlist_author": "Ayra Starr",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Bloody Samaritan",
+                    "artistname": "Ayra Starr",
+                    "albumname": "19 & Dangerous"
+                },
+                {
+                    "songtitle": "Rush",
+                    "artistname": "Ayra Starr",
+                    "albumname": "19 & Dangerous"
+                },
+                {
+                    "songtitle": "Sability",
+                    "artistname": "Ayra Starr",
+                    "albumname": "19 & Dangerous"
+                }
+            ]
+        },
+        {
+            "playlistID": "7",
+            "playlist_name": "Asake's Street Anthems",
+            "playlist_author": "Asake",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Sungba",
+                    "artistname": "Asake",
+                    "albumname": "Mr. Money With The Vibe"
+                },
+                {
+                    "songtitle": "Peace Be Unto You",
+                    "artistname": "Asake",
+                    "albumname": "Work of Art"
+                },
+                {
+                    "songtitle": "Lonely At The Top",
+                    "artistname": "Asake",
+                    "albumname": "Work of Art"
+                }
+            ]
+        },
+        {
+            "playlistID": "8",
+            "playlist_name": "Omah Lay's Melodies",
+            "playlist_author": "Omah Lay",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Godly",
+                    "artistname": "Omah Lay",
+                    "albumname": "What Have We Done"
+                },
+                {
+                    "songtitle": "Soso",
+                    "artistname": "Omah Lay",
+                    "albumname": "Boy Alone"
+                },
+                {
+                    "songtitle": "Understand",
+                    "artistname": "Omah Lay",
+                    "albumname": "What Have We Done"
+                }
+            ]
+        },
+        {
+            "playlistID": "9",
+            "playlist_name": "Fireboy's Love Songs",
+            "playlist_author": "Fireboy DML",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Peru",
+                    "artistname": "Fireboy DML",
+                    "albumname": "Playboy"
+                },
+                {
+                    "songtitle": "Vibration",
+                    "artistname": "Fireboy DML",
+                    "albumname": "Laughter, Tears & Goosebumps"
+                },
+                {
+                    "songtitle": "Scatter",
+                    "artistname": "Fireboy DML",
+                    "albumname": "Laughter, Tears & Goosebumps"
+                }
+            ]
+        },
+        {
+            "playlistID": "10",
+            "playlist_name": "Tiwa Savage's Queen Collection",
+            "playlist_author": "Tiwa Savage",
+            "playlist_art": "assets/img/playlist.png",
+            "likes": 0,
+            "songs": [
+                {
+                    "songtitle": "Somebody's Son",
+                    "artistname": "Tiwa Savage ft. Brandy",
+                    "albumname": "Water & Garri"
+                },
+                {
+                    "songtitle": "Koroba",
+                    "artistname": "Tiwa Savage",
+                    "albumname": "Celia"
+                },
+                {
+                    "songtitle": "Loaded",
+                    "artistname": "Tiwa Savage ft. Asake",
+                    "albumname": "Water & Garri"
+                }
+            ]
+        }
+    ]
+} 

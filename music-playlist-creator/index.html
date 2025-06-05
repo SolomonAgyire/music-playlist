@@ -1,27 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Music Playlist Explorer</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <!-- Your header content here -->
+        <h1>Music Playlist Explorer</h1>
+        <nav>
+            <a href="playlists.html" class="nav-link">Explore Playlists</a>
+        </nav>
     </header>
 
-    <main> 
-        <!-- Your main content here -->
+    <main class="featured-container">
+        <div class="featured-playlist">
+            <div class="featured-left">
+                <div class="featured-image-container">
+                    <img id="featuredImage" src="" alt="Featured Playlist" class="featured-image">
+                </div>
+                <h2 id="featuredTitle" class="featured-title"></h2>
+                <p id="featuredAuthor" class="featured-author"></p>
+            </div>
+            <div class="featured-right">
+                <h3>Songs in this Playlist</h3>
+                <ul id="featuredSongs" class="featured-songs-list">
+            
+                </ul>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <!-- Your footer content here -->
+        Solomon Agyire
     </footer>
-    <script src="data/data.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
+</html> 
