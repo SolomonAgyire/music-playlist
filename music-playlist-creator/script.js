@@ -4,7 +4,7 @@ const likedPlaylists = {};
 function displayFeaturedPlaylist() {
     if (!document.querySelector('.featured-container')) return;
 
-    fetch('data/data.json')
+    fetch('data.json')
         .then(response => response.json())
         .then(data => {
             const playlists = data.playlists;
@@ -32,7 +32,7 @@ function displayFeaturedPlaylist() {
 function loadPlaylistCards() {
     if (!document.querySelector('.playlist-cards')) return;
 
-    fetch('data/data.json')
+    fetch('data.json')
         .then(response => response.json())
         .then(data => {
             const playlists = data.playlists;
@@ -51,6 +51,7 @@ function loadPlaylistCards() {
                     <div class="card-likes-row">
                         <span class="like-btn" title="Like">&#10084;&#65039;</span>
                         <span class="like-count">${playlist.likes}</span>
+
                     </div>
                 `;
                 cards.appendChild(card);

@@ -4,7 +4,7 @@
             "playlistID": "1",
             "playlist_name": "Afrobeats Essentials",
             "playlist_author": "Burna Boy",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/burna.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -28,7 +28,7 @@
             "playlistID": "2",
             "playlist_name": "Wizkid's Greatest Hits",
             "playlist_author": "Wizkid",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/wizkid.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -52,7 +52,7 @@
             "playlistID": "3",
             "playlist_name": "Davido's Party Mix",
             "playlist_author": "Davido",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/davido.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -76,7 +76,7 @@
             "playlistID": "4",
             "playlist_name": "Tems' Soulful Collection",
             "playlist_author": "Tems",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/tems.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -100,7 +100,7 @@
             "playlistID": "5",
             "playlist_name": "Rema's Modern Afrobeats",
             "playlist_author": "Rema",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/rema.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -124,7 +124,7 @@
             "playlistID": "6",
             "playlist_name": "Ayra Starr's Rising Stars",
             "playlist_author": "Ayra Starr",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/ayra.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -148,7 +148,7 @@
             "playlistID": "7",
             "playlist_name": "Asake's Street Anthems",
             "playlist_author": "Asake",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/asake.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -172,7 +172,7 @@
             "playlistID": "8",
             "playlist_name": "Omah Lay's Melodies",
             "playlist_author": "Omah Lay",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/omah.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -196,7 +196,7 @@
             "playlistID": "9",
             "playlist_name": "Fireboy's Love Songs",
             "playlist_author": "Fireboy DML",
-            "playlist_art": "assets/img/playlist.png",
+            "playlist_art": "assets/img/fireboy.jpg",
             "likes": 0,
             "songs": [
                 {
@@ -213,30 +213,6 @@
                     "songtitle": "Scatter",
                     "artistname": "Fireboy DML",
                     "albumname": "Laughter, Tears & Goosebumps"
-                }
-            ]
-        },
-        {
-            "playlistID": "10",
-            "playlist_name": "Tiwa Savage's Queen Collection",
-            "playlist_author": "Tiwa Savage",
-            "playlist_art": "assets/img/playlist.png",
-            "likes": 0,
-            "songs": [
-                {
-                    "songtitle": "Somebody's Son",
-                    "artistname": "Tiwa Savage ft. Brandy",
-                    "albumname": "Water & Garri"
-                },
-                {
-                    "songtitle": "Koroba",
-                    "artistname": "Tiwa Savage",
-                    "albumname": "Celia"
-                },
-                {
-                    "songtitle": "Loaded",
-                    "artistname": "Tiwa Savage ft. Asake",
-                    "albumname": "Water & Garri"
                 }
             ]
         }
