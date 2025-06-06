@@ -40,9 +40,10 @@ main {
 }
 
 .card {
-    background: #a9a8a8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 22%;
     min-width: 220px;
     max-width: 260px;
@@ -52,14 +53,34 @@ main {
     align-items: center;
     padding: 1rem 0.5rem 1.5rem 0.5rem;
     text-align: center;
-    transition: box-shadow 0.2s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .card:hover {
-    box-shadow: 0 4px 16px black;
-    box-shadow: 0 8px 24px black;
-    transform: scale(1.045) translateY(-4px);
-    z-index: 2;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .card-img {
@@ -68,6 +89,13 @@ main {
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1);
+}
+
+.card:hover .card-img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card-details {
@@ -82,12 +110,24 @@ main {
     font-weight: bold;
     margin: 0.5rem 0 0.2rem 0;
     line-height: 1.2;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.card:hover .card-title {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .card-author {
     font-size: 0.95rem;
-    color: #292727;
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-author {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .card-likes {
@@ -106,17 +146,22 @@ main {
     gap: 0.5rem;
     margin-top: 1rem;
     font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 .like-btn {
     cursor: pointer;
     font-size: 1.5rem;
-    color: #bbb;
-    transition: color 0.2s, transform 0.2s;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
     line-height: 1;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .like-btn:hover {
@@ -126,14 +171,21 @@ main {
 
 .like-btn.liked {
     color: #e74c3c;
-    text-shadow: 0 2px 8px rgba(231,76,60,0.12);
+    text-shadow: 0 2px 8px rgba(231,76,60,0.3);
 }
 
 .like-count {
     font-size: 1.1rem;
-    color: #444;
+    color: rgba(255, 255, 255, 0.7);
     min-width: 1.5em;
     text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.card:hover .like-count {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 footer {
@@ -154,7 +206,7 @@ footer {
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
     overflow: auto;
@@ -165,25 +217,25 @@ footer {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #4c2f2f 60%, #24382e 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 2.2rem 1.7rem 2rem 1.7rem;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     width: 95%;
     max-width: 430px;
-    max-height: 850vh;
+    max-height: 80vh;
     position: relative;
     text-align: left;
     overflow: auto;
-    margin: 2rem 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    border: 1.5px solid #d1e3ea;
 }
 
 .close {
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.7);
     position: absolute;
     top: 12px;
     right: 18px;
@@ -193,16 +245,16 @@ footer {
     transition: color 0.2s;
 }
 .close:hover, .close:focus {
-    color: #333;
+    color: #ffffff;
     text-decoration: none;
 }
 
 #modalDetails h2 {
+    color: #ffffff;
     margin-top: 0;
     margin-bottom: 0.3rem;
     font-size: 1.4rem;
     text-align: center;
-    color: #2d3a4a;
     letter-spacing: 0.5px;
 }
 #modalDetails img {
@@ -217,25 +269,39 @@ footer {
     margin: 0;
 }
 .song-item {
-    background: #f7fafc;
-    border: 1px solid #e0e0e0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.7rem;
     border-radius: 8px;
     padding: 0.7rem 1rem;
-    margin-bottom: 0.7rem;
+}
+.song-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.song-title-container {
     display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.2rem;
 }
 .song-title {
+    color: #ffffff;
     font-weight: bold;
     font-size: 1rem;
 }
 .song-artist, .song-album {
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
-    color: #555;
 }
-
+.song-duration {
+    font-size: 0.9rem;
+    color: #ffffff;
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-left: auto;
+}
 .modal-img {
     display: block;
     margin: 0.5rem auto 1rem auto;
@@ -245,17 +311,11 @@ footer {
     object-fit: cover;
     box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
 }
-
 .modal-author {
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    font-size: 1.08rem;
-    font-weight: 500;
-    margin-bottom: 1.1rem;
-    color: #3a5a4a;
-    letter-spacing: 0.2px;
+    margin-bottom: 1rem;
 }
-
-
 .shuffle-btn {
     display: block;
     margin: 15px auto;
@@ -267,21 +327,19 @@ footer {
     font-size: 15px;
     transition: background-color 0.3s ease;
 }
-
 .shuffle-btn:hover {
     background-color: #652d42;
 }
-
 .shuffle-btn:active {
     transform: scale(0.98);
 }
 
-/* Featured Page Styles */
+
 .featured-container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
-    min-height: calc(100vh - 200px); /* Account for header and footer */
+    min-height: calc(100vh - 200px); 
 }
 
 .featured-playlist {
@@ -359,34 +417,87 @@ footer {
 }
 
 .featured-songs-list li {
-    padding: 1rem;
-    margin-bottom: 0.8rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.7rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-songs-list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .featured-songs-list li:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.featured-songs-list li:hover::before {
+    opacity: 1;
+}
+
+.featured-songs-list .song-title-row {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.featured-songs-list li:hover .song-title-row {
+    transform: translateX(6px);
 }
 
 .featured-songs-list .song-title {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.featured-songs-list li:hover .song-title {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.featured-songs-list .song-duration {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.featured-songs-list li:hover .song-duration {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .featured-songs-list .song-artist,
 .featured-songs-list .song-album {
-    display: block;
-    font-size: 0.9rem;
-    color: #e0e0e0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
-/* Navigation Styles for Featured Page */
+.featured-songs-list li:hover .song-artist,
+.featured-songs-list li:hover .song-album {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateX(4px);
+}
+
+
 nav {
     margin-top: 1rem;
     display: flex;
@@ -399,7 +510,7 @@ nav {
     text-decoration: none;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(9, 124, 128, 0.1);
     transition: all 0.3s ease;
 }
 
@@ -413,7 +524,7 @@ nav {
     font-weight: bold;
 }
 
-/* Responsive Design for Featured Page */
+
 @media (max-width: 768px) {
     .featured-playlist {
         flex-direction: column;
@@ -431,4 +542,59 @@ nav {
     .featured-right {
         padding: 1rem;
     }
+}
+
+.song-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    gap: 1rem;
+}
+
+.song-title {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.song-duration {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.song-artist, .song-album {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    display: block;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
 }

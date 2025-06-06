@@ -20,9 +20,12 @@ function displayFeaturedPlaylist() {
             const songsList = document.getElementById('featuredSongs');
             songsList.innerHTML = featuredPlaylist.songs.map(song => `
                 <li>
-                    <span class="song-title">${song.songtitle}</span>
-                    <span class="song-artist">Artist: ${song.artistname}</span>
-                    <span class="song-album">Album: ${song.albumname}</span>
+                    <div class="song-title-row">
+                        <span class="song-title">${song.songtitle}</span>
+                        <span class="song-duration">${song.duration}</span>
+                    </div>
+                    <div class="song-artist">Artist: ${song.artistname}</div>
+                    <div class="song-album">Album: ${song.albumname}</div>
                 </li>
             `).join('');
         });
@@ -49,9 +52,8 @@ function loadPlaylistCards() {
                         <p class="card-author">${playlist.playlist_author}</p>
                     </div>
                     <div class="card-likes-row">
-                        <span class="like-btn" title="Like">&#10084;&#65039;</span>
+                        <span class="like-btn" title="Like">♡</span>
                         <span class="like-count">${playlist.likes}</span>
-
                     </div>
                 `;
                 cards.appendChild(card);
@@ -68,7 +70,9 @@ function setupCardEvents(playlists) {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, index) => {
         card.onclick = function(e) {
-            if (e.target.classList.contains('like-btn')) return;
+            if (e.target.classList.contains('like-btn') || e.target.classList.contains('like-count')) {
+                return;
+            }
             openModal(playlists[index]);
         };
     });
@@ -79,6 +83,7 @@ function setupLikeButtons(playlists) {
     const likeBtns = document.querySelectorAll('.like-btn');
     likeBtns.forEach((btn, index) => {
         btn.onclick = function(e) {
+            e.preventDefault();
             e.stopPropagation();
             const playlist = playlists[index];
             const likeCountSpan = btn.nextElementSibling;
@@ -112,9 +117,12 @@ function openModal(playlist) {
         <ul id="playlist-songs-${playlist.playlistID}">
             ${playlist.songs.map(song => `
                 <li class="song-item">
-                    <span class="song-title">${song.songtitle}</span>
-                    <span class="song-artist">Artist: ${song.artistname}</span>
-                    <span class="song-album">Album: ${song.albumname}</span>
+                    <div class="song-title-row">
+                        <span class="song-title">${song.songtitle}</span>
+                        <span class="song-duration">${song.duration}</span>
+                    </div>
+                    <div class="song-artist">Artist: ${song.artistname}</div>
+                    <div class="song-album">Album: ${song.albumname}</div>
                 </li>
             `).join('')}
         </ul>
