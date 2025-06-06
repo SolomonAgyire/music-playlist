@@ -4,7 +4,7 @@ Submitted by: Solomon Agyire
 
 Estimated time spent: 50 hours spent in total
 
-Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Music Playlist Explorer Deployed Site]: (https://music-playlist-vmmw.onrender.com))
 
 ### Application Features
 
