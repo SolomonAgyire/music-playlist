@@ -211,6 +211,7 @@ function createPlaylistFormModal(isEdit = false, playlistToEdit = null) {
     };
 
     const songsList = modal.querySelector('#songsList');
+    
     function addSongEntry(song = { songtitle: '', artistname: '', duration: '' }) {
         const songEntry = document.createElement('div');
         songEntry.className = 'song-entry';
@@ -302,24 +303,58 @@ const modalOverlay = document.getElementById('playlistModal');
 const closeModalBtn = document.getElementById('closeModal');
 const modalDetails = document.getElementById('modalDetails');
 
+// function openModal(playlist) {
+//     modalDetails.innerHTML = `
+//         <h2>${playlist.playlist_name}</h2>
+//         <div class="modal-author">${playlist.playlist_author}</div>
+//         <img src="${playlist.playlist_art}" alt="${playlist.playlist_name}" class="modal-img">
+//         <button class="shuffle-btn" onclick="shufflePlaylist(${playlist.playlistID})">🔀 Shuffle</button>
+//         <ul id="playlist-songs-${playlist.playlistID}">
+//             ${playlist.songs.map(song => `
+//                 <li class="song-item">
+//                     <div class="song-title-row">
+//                     <span class="song-title">${song.songtitle}</span>
+//                         <span class="song-duration">${song.duration}</span>
+//                     </div>
+//                     <div class="song-artist">Artist: ${song.artistname}</div>
+//                     <div class="song-album">Album: ${song.albumname}</div>
+//                 </li>
+//             `).join('')}
+//         </ul>
+//     `;
+//     modalOverlay.classList.add('active');
+// }
+
+
 function openModal(playlist) {
     modalDetails.innerHTML = `
-        <h2>${playlist.playlist_name}</h2>
-        <div class="modal-author">${playlist.playlist_author}</div>
-        <img src="${playlist.playlist_art}" alt="${playlist.playlist_name}" class="modal-img">
-        <button class="shuffle-btn" onclick="shufflePlaylist(${playlist.playlistID})">🔀 Shuffle</button>
-        <ul id="playlist-songs-${playlist.playlistID}">
-            ${playlist.songs.map(song => `
-                <li class="song-item">
-                    <div class="song-title-row">
-                    <span class="song-title">${song.songtitle}</span>
-                        <span class="song-duration">${song.duration}</span>
-                    </div>
-                    <div class="song-artist">Artist: ${song.artistname}</div>
-                    <div class="song-album">Album: ${song.albumname}</div>
-                </li>
-            `).join('')}
-        </ul>
+        <div class="modal-content-row">
+            <div class="modal-info">
+                <div class="image-container">
+                    <img src="${playlist.playlist_art}" alt="${playlist.playlist_name}" class="modal-img">
+                </div>
+                <h2>${playlist.playlist_name}</h2>
+                <div class="modal-author">${playlist.playlist_author}</div>
+                <button class="shuffle-btn" onclick="shufflePlaylist(${playlist.playlistID})">🔀 Shuffle</button>
+            </div>
+            <div class = "text-container">
+                <div class="modal-songs">
+                    <h3 class="featured-right" >Songs in this playlist</h3> 
+                    <ul id="playlist-songs-${playlist.playlistID}">
+                        ${playlist.songs.map(song => `
+                            <li class="song-item">
+                                <div class="song-title-row">
+                                    <span class="song-title">${song.songtitle}</span>
+                                    <span class="song-duration">${song.duration}</span>
+                                </div>
+                                <div class="song-artist">Artist: ${song.artistname}</div>
+                                <div class="song-album">Album: ${song.albumname}</div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            </div>
+        </div>
     `;
     modalOverlay.classList.add('active');
 }
