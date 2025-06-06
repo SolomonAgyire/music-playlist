@@ -1,28 +1,25 @@
-//playlist
 const likedPlaylists = {};
 
-// Initialize playlists from localStorage or data.json
 let playlists = [];
 
 function initializePlaylists() {
-    // Try to get playlists from localStorage first
     const storedPlaylists = localStorage.getItem('playlists');
     if (storedPlaylists) {
         playlists = JSON.parse(storedPlaylists);
         loadPlaylistCards();
     } else {
-        // If no stored playlists, load from data.json
+        // If no stored playlists
         fetch('data.json')
             .then(response => response.json())
             .then(data => {
                 playlists = data.playlists;
-                // Store initial playlists in localStorage
+                
                 localStorage.setItem('playlists', JSON.stringify(playlists));
                 loadPlaylistCards();
             })
             .catch(error => {
                 console.error('Error loading playlists:', error);
-                // If there's an error, initialize with empty array
+                //error
                 playlists = [];
                 loadPlaylistCards();
             });
@@ -39,12 +36,12 @@ function displayFeaturedPlaylist() {
             const randomIndex = Math.floor(Math.random() * playlists.length);
             const featuredPlaylist = playlists[randomIndex];
 
-            // Update 
+        
             document.getElementById('featuredImage').src = featuredPlaylist.playlist_art;
             document.getElementById('featuredTitle').textContent = featuredPlaylist.playlist_name;
             document.getElementById('featuredAuthor').textContent = featuredPlaylist.playlist_author;
 
-            // Update songs list
+        
             const songsList = document.getElementById('featuredSongs');
             songsList.innerHTML = featuredPlaylist.songs.map(song => `
                 <li>
@@ -92,15 +89,14 @@ function loadPlaylistCards() {
                 cards.appendChild(card);
             });
 
-    // Setup event listeners
-            setupCardEvents(playlists);
-            setupLikeButtons(playlists);
-    setupEditButtons(playlists);
-    setupDeleteButtons(playlists);
+            CardEvents(playlists);
+            LikeButtons(playlists);
+    EditButtons(playlists);
+    DeleteButtons(playlists);
 }
 
 
-function setupCardEvents(playlists) {
+function CardEvents(playlists) {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card, index) => {
         card.onclick = function(e) {
@@ -113,7 +109,7 @@ function setupCardEvents(playlists) {
 }
 
 
-function setupLikeButtons(playlists) {
+function LikeButtons(playlists) {
     const likeBtns = document.querySelectorAll('.like-btn');
     likeBtns.forEach((btn, index) => {
         btn.onclick = function(e) {
@@ -137,7 +133,7 @@ function setupLikeButtons(playlists) {
     });
 }
 
-function setupEditButtons(playlists) {
+function EditButtons(playlists) {
     const editButtons = document.querySelectorAll('.edit-btn');
     editButtons.forEach((btn, index) => {
         btn.onclick = function(e) {
@@ -149,7 +145,7 @@ function setupEditButtons(playlists) {
     });
 }
 
-function setupDeleteButtons(playlists) {
+function DeleteButtons(playlists) {
     const deleteButtons = document.querySelectorAll('.delete-btn');
     deleteButtons.forEach((btn, index) => {
         btn.onclick = function(e) {
@@ -163,13 +159,12 @@ function setupDeleteButtons(playlists) {
     });
 }
 
-// --- Playlist Form Modal (Dynamic) ---
+
 function createPlaylistFormModal(isEdit = false, playlistToEdit = null) {
-    // Remove any existing modal
     const existingModal = document.getElementById('playlistFormModal');
     if (existingModal) existingModal.remove();
 
-    // Modal HTML structure (same as before)
+    // Modal HTML 
     const modal = document.createElement('div');
     modal.className = 'modal-overlay';
     modal.id = 'playlistFormModal';
@@ -208,14 +203,13 @@ function createPlaylistFormModal(isEdit = false, playlistToEdit = null) {
         modal.classList.remove('active');
         setTimeout(() => modal.remove(), 300);
     };
-    modal.onclick = function(event) {
-        if (event.target === modal) {
+    modal.onclick = function(e) {
+        if (e.target === modal) {
             modal.classList.remove('active');
             setTimeout(() => modal.remove(), 300);
         }
     };
 
-    // Add song entry logic
     const songsList = modal.querySelector('#songsList');
     function addSongEntry(song = { songtitle: '', artistname: '', duration: '' }) {
         const songEntry = document.createElement('div');
@@ -236,18 +230,18 @@ function createPlaylistFormModal(isEdit = false, playlistToEdit = null) {
         addSongEntry();
     };
 
-    // If editing, populate fields
+
     if (isEdit && playlistToEdit) {
         modal.querySelector('#playlistName').value = playlistToEdit.playlist_name;
         modal.querySelector('#playlistAuthor').value = playlistToEdit.playlist_author;
         songsList.innerHTML = '';
         playlistToEdit.songs.forEach(song => addSongEntry(song));
     } else {
-        // Add one empty song entry by default
+        // empty song
         addSongEntry();
     }
 
-    // Form submission logic
+    // Form 
     modal.querySelector('#playlistForm').onsubmit = function(e) {
         e.preventDefault();
         const playlistData = {
@@ -269,23 +263,21 @@ function createPlaylistFormModal(isEdit = false, playlistToEdit = null) {
             });
         }
         if (isEdit && playlistToEdit) {
-            // Update existing playlist
-            const idx = playlists.findIndex(p => p.playlistID === playlistToEdit.playlistID);
-            if (idx !== -1) playlists[idx] = playlistData;
+            const index = playlists.findIndex(p => p.playlistID === playlistToEdit.playlistID);
+            if (index !== -1) playlists[index] = playlistData;
         } else {
-            // Add new playlist
             playlists.push(playlistData);
         }
         savePlaylists();
         modal.classList.remove('active');
-        setTimeout(() => modal.remove(), 300);
+        modal.remove();
     };
 }
 
-// --- Hook up Create Playlist button ---
+// playlist btn
 document.addEventListener('DOMContentLoaded', function() {
     initializePlaylists();
-    setupSearchAndSort();
+    SearchAndSort();
     const createPlaylistBtn = document.getElementById('createPlaylistBtn');
     if (createPlaylistBtn) {
         createPlaylistBtn.onclick = function() {
@@ -294,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// --- Edit button logic update ---
+
 function openEditModal(playlist) {
     createPlaylistFormModal(true, playlist);
 }
@@ -340,7 +332,7 @@ if (closeModalBtn) {
 }
 
 if (modalOverlay) {
-    modalOverlay.onclick = function(event) {
+    modalOverlay.onclick = function(e) {
         if (event.target === modalOverlay) {
             modalOverlay.classList.remove('active');
         }
@@ -379,7 +371,7 @@ function savePlaylists() {
 }
 
 // Add search and sort functionality
-function setupSearchAndSort() {
+function SearchAndSort() {
     const playlistCards = document.querySelector('.playlist-cards');
     if (!playlistCards) return;
 
@@ -407,7 +399,7 @@ function setupSearchAndSort() {
     // Insert before playlist cards
     playlistCards.parentNode.insertBefore(searchSortContainer, playlistCards);
 
-    // Setup search functionality
+    //  search functionality
     const searchIcon = searchSortContainer.querySelector('.search-icon');
     const searchInput = searchSortContainer.querySelector('.search-input');
 
@@ -423,7 +415,7 @@ function setupSearchAndSort() {
         filterAndSortPlaylists(searchTerm, searchSortContainer.querySelector('.sort-select').value);
     });
 
-    // Setup sort functionality
+    //  sort functionality
     const sortSelect = searchSortContainer.querySelector('.sort-select');
     sortSelect.addEventListener('change', () => {
         filterAndSortPlaylists(searchInput.value.toLowerCase(), sortSelect.value);
@@ -487,9 +479,9 @@ function filterAndSortPlaylists(searchTerm, sortOption) {
         cards.appendChild(card);
     });
 
-    // Re-setup event listeners for the filtered cards
-    setupCardEvents(filteredPlaylists);
-    setupLikeButtons(filteredPlaylists);
-    setupEditButtons(filteredPlaylists);
-    setupDeleteButtons(filteredPlaylists);
+    // Re- event listeners for the filtered cards
+    CardEvents(filteredPlaylists);
+    LikeButtons(filteredPlaylists);
+    EditButtons(filteredPlaylists);
+    DeleteButtons(filteredPlaylists);
 }
