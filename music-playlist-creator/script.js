@@ -344,18 +344,16 @@ function shufflePlaylist(playlistID) {
     const songsList = document.getElementById(`playlist-songs-${playlistID}`);
     if (!songsList) return;
 
-    // Get all song items as an array
+
     const songItems = Array.from(songsList.getElementsByClassName('song-item'));
     // Fisher-Yates shuffle
     for (let i = songItems.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [songItems[i], songItems[j]] = [songItems[j], songItems[i]];
     }
-    // Remove all children
     while (songsList.firstChild) {
         songsList.removeChild(songsList.firstChild);
     }
-    // Re-append in shuffled order
     songItems.forEach(item => songsList.appendChild(item));
 }
 
@@ -370,12 +368,11 @@ function savePlaylists() {
     loadPlaylistCards();
 }
 
-// Add search and sort functionality
 function SearchAndSort() {
     const playlistCards = document.querySelector('.playlist-cards');
     if (!playlistCards) return;
 
-    // Create search and sort container
+
     const searchSortContainer = document.createElement('div');
     searchSortContainer.className = 'search-sort-container';
     searchSortContainer.innerHTML = `
@@ -396,10 +393,8 @@ function SearchAndSort() {
         </select>
     `;
 
-    // Insert before playlist cards
     playlistCards.parentNode.insertBefore(searchSortContainer, playlistCards);
 
-    //  search functionality
     const searchIcon = searchSortContainer.querySelector('.search-icon');
     const searchInput = searchSortContainer.querySelector('.search-input');
 
@@ -425,7 +420,6 @@ function SearchAndSort() {
 function filterAndSortPlaylists(searchTerm, sortOption) {
     let filteredPlaylists = [...playlists];
 
-    // Filter playlists
     if (searchTerm) {
         filteredPlaylists = filteredPlaylists.filter(playlist => 
             playlist.playlist_name.toLowerCase().includes(searchTerm) ||
@@ -454,7 +448,7 @@ function filterAndSortPlaylists(searchTerm, sortOption) {
     cards.innerHTML = '';
     
     if (filteredPlaylists.length === 0) {
-        cards.innerHTML = '<p class="no-playlists">No playlists found matching your search.</p>';
+        cards.innerHTML = '<p class="no-playlists">No matched playlist found.</p>';
         return;
     }
 
@@ -479,7 +473,6 @@ function filterAndSortPlaylists(searchTerm, sortOption) {
         cards.appendChild(card);
     });
 
-    // Re- event listeners for the filtered cards
     CardEvents(filteredPlaylists);
     LikeButtons(filteredPlaylists);
     EditButtons(filteredPlaylists);
