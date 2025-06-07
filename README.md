@@ -129,7 +129,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   -[x] Selecting a sort option should result in a reordering based on the selected sort while maintaining a grid view.
 
 ### Walkthrough Video
-[<iframe width="560" height="315" src="https://www.youtube.com/embed/L9mU_gqhOsE?si=GQCPZY4wAe5TMvD1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>. ](https://youtu.be/L9mU_gqhOsE)
+[![Watch the video](https://img.youtube.com/vi/L9mU_gqhOsE/0.jpg)](https://youtu.be/L9mU_gqhOsE)
 
 
 
