@@ -2,9 +2,9 @@
 
 Submitted by: Solomon Agyire
 
-Estimated time spent: 50 hours spent in total
+Estimated time spent:30 hours spent in total
 
-Deployed Application (**required**): [Music Playlist Explorer Deployed Site]: (https://music-playlist-vmmw.onrender.com))
+Deployed Application (**required**): [Music Playlist Explorer Deployed Site](https://music-playlist-vmmw.onrender.com/. )
 
 ### Application Features
 
@@ -14,7 +14,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site]: (h
   -[x] Dynamically render playlists on the homepage using JavaScript.
     -[x] Playlists should be shown in grid view.
     -[x] Playlist images should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
-  -[x] Fetch data from a provided JSON  file and use it to create interactive playlist tiles.
+  -[x] Fetch data from a provided Javascript file and use it to create interactive playlist tiles.
 
 -[x] **Playlist Components**
   -[x] Each tile should display the playlist's:
@@ -138,20 +138,20 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site]: (h
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I felt prepared to handle the project. It was more so of trying to understand and utilize the understanding and resources to complete the project. The one challenging feature I would share is the adding and modifying the playlist. I wanted to make sure I wasn’t going back to default after a refresh. However, with research and asking questions, I was able to implement the local storage to keep track of changes made.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+I would dig deeper into adding more features and also style it better to captivate attention. People are attracted to branding, so I would have added some nice logos and background video plays, etc. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+My project demo went well. I should have had some short slides to make it more lively and interesting. I recognise that some of my peers did that and I enjoyed it. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+https://developer.mozilla.org/en-US/. 
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to all the TA’s and the instructors for their patience 
